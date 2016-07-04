@@ -30,6 +30,16 @@ set wildmenu
 set wildmode=list:longest,list:full " Wildmenu configuration
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git " Ignore compiled files
 
+" Store swap, backup and undo files in fixed location
+set dir=/var/tmp//,/tmp//,.
+set backupdir=/var/tmp//,/tmp//,.
+set history=64
+set undolevels=128
+set undodir=~/.vim/undodir/
+set undofile
+set undolevels=100
+set undoreload=1000
+
 " higlight but not jump
 nnoremap * *N
 
@@ -79,11 +89,11 @@ autocmd FileType go set foldmethod=syntax
 autocmd FileType go set foldnestmax=10
 autocmd FileType go set nofoldenable
 autocmd FileType go set foldlevel=0
-autocmd FileType go nmap <leader>gi :GoImport 
+autocmd FileType go nmap <leader>gi :GoImport
 autocmd FileType go nmap <leader>gf :GoInfo<CR>
 autocmd FileType go nmap <leader>gd :GoDoc<CR>
 autocmd FileType go nmap <leader>gg :GoDef<CR>
-autocmd FileType go nmap <leader>gr :GoRename 
+autocmd FileType go nmap <leader>gr :GoRename
 let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
