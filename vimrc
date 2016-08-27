@@ -40,6 +40,11 @@ set undofile
 set undolevels=100
 set undoreload=1000
 
+" настраиваем раскладку
+set keymap=russian-jcukenwin
+set iminsert=0
+set imsearch=0
+
 " higlight but not jump
 nnoremap * *N
 
@@ -79,7 +84,6 @@ autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,exce
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
-
 
 " Настраиваем GO
 autocmd FileType go set noexpandtab
