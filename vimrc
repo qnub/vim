@@ -29,6 +29,7 @@ set number
 set wildmenu
 set wildmode=list:longest,list:full " Wildmenu configuration
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git " Ignore compiled files
+set exrc " enable reading .exrc files for each dir
 
 " Store swap, backup and undo files in fixed location
 set dir=/var/tmp//,/tmp//,.
