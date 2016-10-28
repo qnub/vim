@@ -8,6 +8,7 @@ filetype plugin indent on
 syntax enable
 
 " Основные настройки
+set t_Co=256
 set autoindent
 set autoread " Reload files changed outside automatically
 set backspace=indent,eol,start
@@ -55,9 +56,6 @@ vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 " Настройка цвета ограничительной линии
 hi ColorColumn ctermbg=235 guibg=235
 
-" Настраиваем python
-autocmd FileType python set colorcolumn=80
-
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
@@ -81,6 +79,7 @@ let g:bufExplorerSortBy='number'     " Sort by the buffer's name.
 
 " Настраиваем Python
 let python_highlight_all = 1
+autocmd FileType python set colorcolumn=80
 autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
 highlight WhitespaceEOL ctermbg=red guibg=red
