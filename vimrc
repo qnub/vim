@@ -54,7 +54,7 @@ nnoremap * *N
 vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 
 " Настройка цвета ограничительной линии
-hi ColorColumn ctermbg=235 guibg=235
+hi ColorColumn ctermbg=red
 
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
@@ -68,8 +68,8 @@ let g:netrw_liststyle=3
 let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,^\..*'
 
 " Настраиваем yaml
-autocmd FileType yaml,yml set shiftwidth=2
-autocmd FileType yaml,yml set tabstop=2
+autocmd FileType yaml,yml setlocal shiftwidth=2
+autocmd FileType yaml,yml setlocal tabstop=2
 
 " Настраиваем bufexplorer
 let g:bufExplorerDefaultHelp=0       " Do not show default help.
@@ -77,22 +77,27 @@ let g:bufExplorerDetailedHelp=0      " Do not show detailed help.
 let g:bufExplorerShowDirectories=0   " Don't show directories.
 let g:bufExplorerSortBy='number'     " Sort by the buffer's name.
 
+" Настраиваем JS
+autocmd FileType javascript,js setlocal expandtab
+autocmd FileType javascript,js setlocal tabstop=4
+autocmd FileType javascript,js setlocal shiftwidth=4
+
 " Настраиваем Python
 let python_highlight_all = 1
-autocmd FileType python set colorcolumn=80
-autocmd FileType python set smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
 " Настраиваем GO
-autocmd FileType go set noexpandtab
-autocmd FileType go set tabstop=4
-autocmd FileType go set colorcolumn=120
-autocmd FileType go set foldmethod=syntax
-autocmd FileType go set foldnestmax=10
-autocmd FileType go set nofoldenable
-autocmd FileType go set foldlevel=0
+autocmd FileType go setlocal noexpandtab
+autocmd FileType go setlocal tabstop=4
+autocmd FileType go setlocal colorcolumn=120
+autocmd FileType go setlocal foldmethod=syntax
+autocmd FileType go setlocal foldnestmax=10
+autocmd FileType go setlocal nofoldenable
+autocmd FileType go setlocal foldlevel=0
 autocmd FileType go nmap <leader>gi :GoImport
 autocmd FileType go nmap <leader>gf :GoInfo<CR>
 autocmd FileType go nmap <leader>gd :GoDoc<CR>
@@ -102,6 +107,7 @@ let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
 nnoremap <leader>tb :TagbarToggle<CR>
+let g:tagbar_autoclose=1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
     \ 'kinds'     : [
