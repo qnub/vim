@@ -31,6 +31,7 @@ set wildmenu
 set wildmode=list:longest,list:full " Wildmenu configuration
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git " Ignore compiled files
 set exrc " enable reading .exrc files for each dir
+set hidden
 
 " Store swap, backup and undo files in fixed location
 set dir=/var/tmp//,/tmp//,.
@@ -89,6 +90,12 @@ autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
 highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
+
+" Настраиваем Rust
+let g:racer_cmd="/home/gigovich/.cargo/bin/racer"
+let g:racer_experimantal_completer=1
+au FileType rust nmap <leader>gg <Plug>(rust-def)
+au FileType rust nmap <leader>gd <Plug>(rust-doc)
 
 " Настраиваем GO
 autocmd FileType go setlocal noexpandtab
