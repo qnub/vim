@@ -92,10 +92,14 @@ highlight WhitespaceEOL ctermbg=red guibg=red
 match WhitespaceEOL /\s\+$/
 
 " Настраиваем Rust
-let g:racer_cmd="/home/gigovich/.cargo/bin/racer"
+let g:rustc_path=$HOME."/.cargo/bin/rustc"
+let g:racer_cmd=$HOME."/.cargo/bin/racer"
 let g:racer_experimantal_completer=1
 au FileType rust nmap <leader>gg <Plug>(rust-def)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
+"au FileType rust let g:syntastic_rust_checkers=['rustc']
+au BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
+au BufWrite *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&"
 
 " Настраиваем GO
 autocmd FileType go setlocal noexpandtab
