@@ -99,7 +99,7 @@ au FileType rust nmap <leader>gg <Plug>(rust-def)
 au FileType rust nmap <leader>gd <Plug>(rust-doc)
 "au FileType rust let g:syntastic_rust_checkers=['rustc']
 au BufRead *.rs :setlocal tags=./rusty-tags.vi;/,$RUST_SRC_PATH/rusty-tags.vi
-au BufWrite *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . expand('%:p:h') . "&"
+au BufWrite *.rs :silent! exec "!rusty-tags vi --quiet --start-dir=" . getcwd() . "&"
 
 " Настраиваем GO
 autocmd FileType go setlocal noexpandtab
