@@ -1,14 +1,11 @@
-# Gigovich vim config#
+# My vim bundle
 
 ```bash
 cd ~
-mkdir opt
-cd opt
-git clone ssh://git@bitbucket.org/gigovich/mvim
-cd mvim
+git clone ssh://git@github.com/gigovich/vim .vim
+cd .vim
 git submodule init
 git submodule update
-./create_simlinks.sh
 ```
 
-VIM MF!!!
+Enjoy!

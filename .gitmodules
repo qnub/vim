@@ -1,39 +1,39 @@
 [submodule "vim/bundle/vim-colors-solarized"]
-	path = vim/bundle/vim-colors-solarized
+	path = bundle/vim-colors-solarized
 	url = https://github.com/altercation/vim-colors-solarized.git
 [submodule "vim/bundle/bufexplorer"]
-	path = vim/bundle/bufexplorer
+	path = bundle/bufexplorer
 	url = https://github.com/jlanzarotta/bufexplorer.git
 [submodule "vim/bundle/syntastic"]
-	path = vim/bundle/syntastic
+	path = bundle/syntastic
 	url = https://github.com/scrooloose/syntastic.git
 [submodule "vim/bundle/tagbar"]
-	path = vim/bundle/tagbar
+	path = bundle/tagbar
 	url = https://github.com/majutsushi/tagbar.git
 [submodule "vim/bundle/jedi-vim"]
-	path = vim/bundle/jedi-vim
+	path = bundle/jedi-vim
 	url = https://github.com/davidhalter/jedi-vim.git
 [submodule "vim/bundle/vim-go"]
-	path = vim/bundle/vim-go
+	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
 [submodule "vim/bundle/python-mode"]
-	path = vim/bundle/python-mode
+	path = bundle/python-mode
 	url = https://github.com/python-mode/python-mode.git
 [submodule "vim/bundle/typescript-vim"]
-	path = vim/bundle/typescript-vim
+	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
 [submodule "vim/bundle/rust.vim"]
-	path = vim/bundle/rust.vim
+	path = bundle/rust.vim
 	url = https://github.com/rust-lang/rust.vim
 [submodule "vim/bundle/vim-toml"]
-	path = vim/bundle/vim-toml
+	path = bundle/vim-toml
 	url = https://github.com/cespare/vim-toml
 [submodule "vim/bundle/vim-racer"]
-	path = vim/bundle/vim-racer
+	path = bundle/vim-racer
 	url = https://github.com/racer-rust/vim-racer.git
 [submodule "vim/bundle/vim-javascript"]
-	path = vim/bundle/vim-javascript
+	path = bundle/vim-javascript
 	url = https://github.com/pangloss/vim-javascript.git
 [submodule "vim/bundle/vim-jsx-pretty"]
-	path = vim/bundle/vim-jsx-pretty
+	path = bundle/vim-jsx-pretty
 	url = https://github.com/MaxMEllon/vim-jsx-pretty.git
