@@ -8,6 +8,8 @@ filetype plugin indent on
 syntax enable
 
 " Основные настройки
+set spelllang=ru_yo,en_us,sv
+set langmap=Ж:,йq,цw,уe,кr,еt,нy,гu,шi,щo,зp,х[,ъ],фa,ыs,вd,аf,пg,рh,оj,лk,дl,э',яz,чx,сc,мv,иb,тn,ьm,,ю.,ё`,./
 set t_Co=256
 set autoindent
 set autoread " Reload files changed outside automatically
@@ -32,6 +34,7 @@ set wildmode=list:longest,list:full " Wildmenu configuration
 set wildignore+=*.o,*.pyc,*.jpg,*.png,*.gif,*.db,*.obj,.git " Ignore compiled files
 set exrc " enable reading .exrc files for each dir
 set hidden
+set cursorline
 
 " Store swap, backup and undo files in fixed location
 set dir=/var/tmp//,/tmp//,.
@@ -60,9 +63,9 @@ hi ColorColumn ctermbg=red
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 
-" Настройка solirized темы
+" Настройка темы
 set background=dark
-colorscheme solarized
+colorscheme wombat256dave
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
