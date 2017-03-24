@@ -37,3 +37,18 @@
 [submodule "bundle/vim-colors-wombat256dave"]
 	path = bundle/vim-colors-wombat256dave
 	url = git@github.com:davb5/wombat256dave.git
+[submodule "bundle/vim-gitgutter"]
+	path = bundle/vim-gitgutter
+	url = https://github.com/airblade/vim-gitgutter
+[submodule "bundle/vim-ctrlp"]
+	path = bundle/vim-ctrlp
+	url = git@github.com:ctrlpvim/ctrlp.vim.git
+[submodule "bundle/vim-nerdtree"]
+	path = bundle/vim-nerdtree
+	url = git@github.com:scrooloose/nerdtree.git
+[submodule "bundle/vim-nerdtree-git"]
+	path = bundle/vim-nerdtree-git
+	url = git@github.com:Xuyuanp/nerdtree-git-plugin.git
+[submodule "bundle/vim-nerdtree-tabs"]
+	path = bundle/vim-nerdtree-tabs
+	url = git@github.com:jistr/vim-nerdtree-tabs.git

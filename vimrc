@@ -51,17 +51,41 @@ set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
 
+" Настраиваем табы
+au TabLeave * let g:lasttab = tabpagenr()
+nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+
 " higlight but not jump
 nnoremap * *N
 
 " Подсвечивает по звёздочке выделенный блок во всём файле
 vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 
-" Настройка цвета ограничительной линии
-hi ColorColumn ctermbg=red
-
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
+
+" Настраиваем GitGutter
+let g:gitgutter_sign_column_always=1
+
+" Настраиваем ctrlp
+nnoremap <F5> :CtrlPMixed<CR>
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll|pyo|pyc)$',
+\ }
+
+" Настраиваем NERDTree
+set <S-F2>=[1;2Q
+nnoremap <silent> <F2> :NERDTreeTabsToggle<CR>
+nnoremap <silent> <S-F2> :NERDTreeFocusToggle<CR>
+let g:nerdtree_tabs_open_on_gui_startup=1
+let g:nerdtree_tabs_open_on_console_startup=1
+let g:nerdtree_tabs_open_on_new_tab=1
+let g:nerdtree_tabs_synchronize_focus=1
+let g:nerdtree_tabs_meaningful_tab_names=1
+let g:nerdtree_tabs_startup_cd=1
+let g:nerdtree_tabs_autofind=1
 
 " Настройка темы
 set background=dark
@@ -88,7 +112,7 @@ autocmd FileType javascript,js setlocal shiftwidth=4
 
 " Настраиваем Python
 let python_highlight_all = 1
-autocmd FileType python setlocal colorcolumn=80
+autocmd FileType python setlocal colorcolumn=100
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
 highlight WhitespaceEOL ctermbg=red guibg=red
@@ -120,7 +144,7 @@ autocmd FileType go nmap <leader>gr :GoRename
 let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
-nnoremap <leader>tb :TagbarToggle<CR>
+nnoremap <F3> :TagbarToggle<CR>
 let g:tagbar_autoclose=1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
