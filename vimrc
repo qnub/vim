@@ -62,6 +62,10 @@ nnoremap * *N
 " Подсвечивает по звёздочке выделенный блок во всём файле
 vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
 
+" Настраиваем Airline
+let g:airline#extensions#tabline#enabled=1
+let g:airline_theme='wombat'
+
 " Настраиваем syntastic
 let g:syntastic_go_checkers = ['go', 'golint', 'govet', 'errcheck']
 

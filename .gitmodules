@@ -13,9 +13,6 @@
 [submodule "vim/bundle/vim-go"]
 	path = bundle/vim-go
 	url = https://github.com/fatih/vim-go.git
-[submodule "vim/bundle/python-mode"]
-	path = bundle/python-mode
-	url = https://github.com/python-mode/python-mode.git
 [submodule "vim/bundle/typescript-vim"]
 	path = bundle/typescript-vim
 	url = https://github.com/leafgarland/typescript-vim.git
@@ -52,3 +49,12 @@
 [submodule "bundle/vim-nerdtree-tabs"]
 	path = bundle/vim-nerdtree-tabs
 	url = git@github.com:jistr/vim-nerdtree-tabs.git
+[submodule "bundle/vim-airline"]
+	path = bundle/vim-airline
+	url = git@github.com:vim-airline/vim-airline.git
+[submodule "bundle/vim-airline-themes"]
+	path = bundle/vim-airline-themes
+	url = git@github.com:vim-airline/vim-airline-themes.git
+[submodule "bundle/vim-virtualenv"]
+	path = bundle/vim-virtualenv
+	url = git@github.com:jmcantrell/vim-virtualenv.git
