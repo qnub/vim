@@ -80,7 +80,8 @@ let g:ctrlp_custom_ignore = {
 \ }
 
 " Настраиваем NERDTree
-set <S-F2>=[1;2Q
+"set <S-F2>=[1;2Q " gterm
+set <S-F2>=[26~ " tmux
 nnoremap <silent> <F2> :NERDTreeTabsToggle<CR>
 nnoremap <silent> <S-F2> :NERDTreeFocusToggle<CR>
 let g:nerdtree_tabs_open_on_gui_startup=1
