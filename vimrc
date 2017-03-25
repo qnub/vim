@@ -1,4 +1,5 @@
 set nocompatible
+set exrc
 filetype off
 
 call pathogen#helptags()
@@ -50,6 +51,13 @@ set undoreload=1000
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+
+nnoremap <F10> :qa<cr>
+
+" Настраиваем сессии
+let g:session_autosave='yes'
+let g:session_autoload='yes'
+let g:session_directory='./session/'
 
 " Настраиваем табы
 au TabLeave * let g:lasttab = tabpagenr()
