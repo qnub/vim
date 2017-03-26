@@ -15,6 +15,7 @@ set t_Co=256
 set autoindent
 set autoread " Reload files changed outside automatically
 set backspace=indent,eol,start
+set eol
 set expandtab
 set hlsearch
 set incsearch " Show search matches while typing
@@ -51,13 +52,16 @@ set undoreload=1000
 set keymap=russian-jcukenwin
 set iminsert=0
 set imsearch=0
+set listchars=eol:$
 
 nnoremap <F10> :qa<cr>
+autocmd BufWritePre :%s/\s\+$//e
 
 " Настраиваем сессии
-let g:session_autosave='yes'
-let g:session_autoload='yes'
 let g:session_directory='./session/'
+let g:session_autoload="yes"
+let g:session_autosave="yes"
+let g:session_lock_enabled = 0
 
 " Настраиваем табы
 au TabLeave * let g:lasttab = tabpagenr()
@@ -69,6 +73,9 @@ nnoremap * *N
 
 " Подсвечивает по звёздочке выделенный блок во всём файле
 vnoremap * y :execute ":let @/=@\""<CR> :execute "set hlsearch"<CR>
+
+" Настраиваем editorconfig
+let g:EditorConfig_exclude_patterns = ['fugitive://.*']
 
 " Настраиваем Airline
 let g:airline#extensions#tabline#enabled=1
@@ -99,6 +106,8 @@ let g:nerdtree_tabs_synchronize_focus=1
 let g:nerdtree_tabs_meaningful_tab_names=1
 let g:nerdtree_tabs_startup_cd=1
 let g:nerdtree_tabs_autofind=1
+let NERDTreeShowHidden=1
+let NERDTreeIgnore=['\.DS_Store$', '__pycache__']
 
 " Настройка темы
 set background=dark
@@ -128,8 +137,6 @@ let python_highlight_all = 1
 autocmd FileType python setlocal colorcolumn=100
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
-highlight WhitespaceEOL ctermbg=red guibg=red
-match WhitespaceEOL /\s\+$/
 
 " Настраиваем Rust
 let g:rustc_path=$HOME."/.cargo/bin/rustc"
@@ -157,7 +164,7 @@ autocmd FileType go nmap <leader>gr :GoRename
 let g:go_list_type = "quickfix"
 
 " Настраиваем Tagbar
-nnoremap <F3> :TagbarToggle<CR>
+nnoremap <silent> <F3> :TagbarToggle<CR>
 let g:tagbar_autoclose=1
 let g:tagbar_type_go = {
     \ 'ctagstype' : 'go',
@@ -186,3 +193,17 @@ let g:tagbar_type_go = {
     \ 'ctagsbin'  : 'gotags',
     \ 'ctagsargs' : '-sort -silent'
 \ }
+
+highlight ExtraWhitespace ctermbg=red guibg=red
+match ExtraWhitespace /\s\+$/
+autocmd BufWinEnter * match ExtraWhitespace /\s\+$/
+autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
+autocmd InsertLeave * match ExtraWhitespace /\s\+$/
+autocmd BufWinLeave * call clearmatches()
+
+function! TrimWhiteSpace()
+    %s/\s\+$//e
+endfunction
+
+autocmd FileType c,cpp,python,ruby,java,javascript,typescript autocmd BufWritePre <buffer> :call TrimWhiteSpace()
+
