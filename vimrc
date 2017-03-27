@@ -57,12 +57,6 @@ set listchars=eol:$
 nnoremap <F8> :wa<cr>
 nnoremap <F10> :qa<cr>
 
-if filereadable("./.session.vim")
-    autocmd VimEnter * :source ./.session.vim
-endif
-
-autocmd VimLeave * :mksession ./.session.vim
-
 " Настраиваем табы
 autocmd TabLeave * let g:lasttab = tabpagenr()
 set <C-left>=[D
