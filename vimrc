@@ -57,12 +57,6 @@ set listchars=eol:$
 nnoremap <F10> :qa<cr>
 autocmd BufWritePre :%s/\s\+$//e
 
-" Настраиваем сессии
-let g:session_directory='./session/'
-let g:session_autoload="yes"
-let g:session_autosave="yes"
-let g:session_lock_enabled = 0
-
 " Настраиваем табы
 au TabLeave * let g:lasttab = tabpagenr()
 nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
