@@ -40,15 +40,6 @@
 [submodule "bundle/vim-ctrlp"]
 	path = bundle/vim-ctrlp
 	url = git@github.com:ctrlpvim/ctrlp.vim.git
-[submodule "bundle/vim-nerdtree"]
-	path = bundle/vim-nerdtree
-	url = git@github.com:scrooloose/nerdtree.git
-[submodule "bundle/vim-nerdtree-git"]
-	path = bundle/vim-nerdtree-git
-	url = git@github.com:Xuyuanp/nerdtree-git-plugin.git
-[submodule "bundle/vim-nerdtree-tabs"]
-	path = bundle/vim-nerdtree-tabs
-	url = git@github.com:jistr/vim-nerdtree-tabs.git
 [submodule "bundle/vim-airline"]
 	path = bundle/vim-airline
 	url = git@github.com:vim-airline/vim-airline.git
@@ -67,3 +58,9 @@
 [submodule "bundle/vim-fugitive"]
 	path = bundle/vim-fugitive
 	url = git@github.com:tpope/vim-fugitive.git
+[submodule "bundle/vim-emmet"]
+	path = bundle/vim-emmet
+	url = git@github.com:mattn/emmet-vim.git
+[submodule "bundle/vim-surround"]
+	path = bundle/vim-surround
+	url = git@github.com:tpope/vim-surround.git

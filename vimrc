@@ -54,13 +54,23 @@ set iminsert=0
 set imsearch=0
 set listchars=eol:$
 
+nnoremap <F8> :wa<cr>
 nnoremap <F10> :qa<cr>
-autocmd BufWritePre :%s/\s\+$//e
+
+if filereadable("./.session.vim")
+    autocmd VimEnter * :source ./.session.vim
+endif
+
+autocmd VimLeave * :mksession ./.session.vim
 
 " Настраиваем табы
-au TabLeave * let g:lasttab = tabpagenr()
-nnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
-vnoremap <silent> <c-l> :exe "tabn ".g:lasttab<cr>
+autocmd TabLeave * let g:lasttab = tabpagenr()
+set <C-left>=[D
+set <C-Right>=[C
+nnoremap <C-Left> :tabprevious<CR>
+nnoremap <C-Right> :tabnext<CR>
+nnoremap <silent> <A-Left> :execute 'silent! tabmove ' . (tabpagenr()-2)<CR>
+nnoremap <silent> <A-Right> :execute 'silent! tabmove ' . (tabpagenr()+1)<CR>
 
 " higlight but not jump
 nnoremap * *N
@@ -88,28 +98,13 @@ let g:ctrlp_custom_ignore = {
   \ 'file': '\v\.(exe|so|dll|pyo|pyc)$',
 \ }
 
-" Настраиваем NERDTree
-"set <S-F2>=[1;2Q " gterm
-set <S-F2>=[26~ " tmux
-nnoremap <silent> <F2> :NERDTreeTabsToggle<CR>
-nnoremap <silent> <S-F2> :NERDTreeFocusToggle<CR>
-let g:nerdtree_tabs_open_on_gui_startup=1
-let g:nerdtree_tabs_open_on_console_startup=1
-let g:nerdtree_tabs_open_on_new_tab=1
-let g:nerdtree_tabs_synchronize_focus=1
-let g:nerdtree_tabs_meaningful_tab_names=1
-let g:nerdtree_tabs_startup_cd=1
-let g:nerdtree_tabs_autofind=1
-let NERDTreeShowHidden=1
-let NERDTreeIgnore=['\.DS_Store$', '__pycache__']
-
 " Настройка темы
 set background=dark
 colorscheme wombat256dave
 
 " Настраиваем netrw
 let g:netrw_liststyle=3
-let g:netrw_list_hide= '.*\.swp$,.*\.pyc$,^\..*'
+let g:netrw_list_hide= '.*\.swp$,.*\.pyc$'
 
 " Настраиваем yaml
 autocmd FileType yaml,yml setlocal shiftwidth=2
@@ -131,6 +126,9 @@ let python_highlight_all = 1
 autocmd FileType python setlocal colorcolumn=100
 autocmd FileType python setlocal smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
 autocmd FileType python inoremap <Nul> <C-x><C-o> " Auto completion via ctrl-space (instead of the nasty ctrl-x ctrl-o)
+
+" Настравиваем Jedi
+let g:jedi#use_tabs_not_buffers=1
 
 " Настраиваем Rust
 let g:rustc_path=$HOME."/.cargo/bin/rustc"
